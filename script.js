@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", loadTasks);
 
 function addTask() {
@@ -57,7 +55,8 @@ function deleteTask(id) {
   tasks = tasks.filter(task => task.id !== id);
   localStorage.setItem("tasks", JSON.stringify(tasks));
 
-  document.querySelector(`[data-id='${id}']`).remove();
+  const li = document.querySelector(`[data-id='${id}']`);
+  if (li) li.remove();
 }
 
 function toggleComplete(id) {
